@@ -9,13 +9,12 @@ import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 import "./Sidebar.css";
 
 import SidebarRow from "./SidebarRow";
+import { useStateValue } from "./stateProvider";
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://avatars3.githubusercontent.com/u/40870043?s=460&u=44e5752ac3097f5f91ce148d0d2d867bfcecd744&v=4"
-        title="hardeep"
-      />
+      <SidebarRow src={user?.photoURL} title={user?.displayName} />
       <SidebarRow
         Icon={LocalHospitalIcon}
         title="Covid-19 Information center"
